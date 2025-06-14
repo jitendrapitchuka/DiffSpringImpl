@@ -12,7 +12,6 @@ graph LR
     B -- Immediate Response --> A;
 
 ```
-
 ### Explanation
 
 - **Client** sends a POST request to `/email/register`.
@@ -23,8 +22,19 @@ graph LR
 - The controller immediately sends a response back to the client while the email is sent asynchronously.
 - This approach improves responsiveness and scalability of your application.
 
+## Swagger / OpenAPI Integration
+
+### How to Access Swagger UI
+
+After running the Spring Boot application locally, open your browser and navigate to:
+
+```
+http://localhost:8080/swagger-ui/index.html
+```
+
 ## ✅ Progress Tracker
 
 Here’s a summary of the tasks that have been successfully completed:
 
 - [✅] Async Email Sending Flow .
+- [✅] Swagger / OpenAPI Integration. (In Async-impl)
