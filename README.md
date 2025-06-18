@@ -31,6 +31,38 @@ After running the Spring Boot application locally, open your browser and navigat
 ```
 http://localhost:8080/swagger-ui/index.html
 ```
+## Logging Configuration Summary
+
+- **Log Pattern:**  
+  `%d{dd-MM-yyyy HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n`
+
+- **Console Appender:**  
+  Logs output to console using the defined log pattern.
+
+- **Rolling File Appender:**  
+  - Logs saved in `logs/app.log`  
+  - Daily rollover: `logs/app-YYYY-MM-DD.log`  
+  - Retain logs for 30 days (`maxHistory=30`)
+
+- **Root Logger Level:** `INFO` (logs INFO and above)
+
+## Note for Spring Boot (Higher Versions)
+
+In newer Spring Boot versions, you can define the console log pattern directly in `application.yml` or `application.properties` like this. However, `logback_spring.xml` is still used for more complex configurations like rolling files.
+```yaml
+
+logging:
+  pattern:
+    console: '%d{dd-MM-yyyy HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n'
+  file:
+    name: logs/app.log
+  level:
+    root: INFO
+```
+---
+
+This setup enables daily rotated logs with console and file output, ensuring manageable log files and easy debugging.
+
 
 ## ✅ Progress Tracker
 
@@ -38,3 +70,4 @@ Here’s a summary of the tasks that have been successfully completed:
 
 - [✅] Async Email Sending Flow .
 - [✅] Swagger / OpenAPI Integration. (In Async-impl)
+- [✅] Custom Logging Configuration. (In Async-impl)
