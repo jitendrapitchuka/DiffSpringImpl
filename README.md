@@ -63,6 +63,11 @@ logging:
 
 This setup enables daily rotated logs with console and file output, ensuring manageable log files and easy debugging.
 
+## Rate Limiting Configuration
+
+- Added the `RateLimiting` using Resilience4j in the `EmailService` class. The rate limiting is configured to allow 2 requests per period of 60 seconds with a timeout duration of 0 seconds.
+- Refer to the `EmailService` class and `application.properties` for the implementation details.
+- Another way to implement rate limiting is by using `Bucket4j`, which allows configuration based on IP address or globally. In contrast, `Resilience4j` does not support IP-based rate limiting out of the box.
 
 ## ✅ Progress Tracker
 
@@ -71,3 +76,5 @@ Here’s a summary of the tasks that have been successfully completed:
 - [✅] Async Email Sending Flow .
 - [✅] Swagger / OpenAPI Integration. (In Async-impl)
 - [✅] Custom Logging Configuration. (In Async-impl)
+- [✅] Rate Limiting Configuration Using Resilience4j. (In Async-impl)
+- [⌛] Rate Limiting Configuration Using Bucket4j.

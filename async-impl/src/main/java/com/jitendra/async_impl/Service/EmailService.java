@@ -3,6 +3,9 @@ package com.jitendra.async_impl.Service;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 
+import io.github.resilience4j.ratelimiter.RequestNotPermitted;
+import io.github.resilience4j.ratelimiter.annotation.RateLimiter;
+
 @Service
 public class EmailService {
 
@@ -21,6 +24,15 @@ public class EmailService {
             System.err.println("Email sending interrupted: " + e.getMessage());
         }
        
+    }
+
+    @RateLimiter(name ="EmailRateLimiter",fallbackMethod = "emailFallBackMethod")
+    public String emailTest(){
+        return "Email Send Successful";
+    }
+
+    public String emailFallBackMethod(RequestNotPermitted e){
+        return "Email Service limit exceeded, please try again later.";
     }
 
 }

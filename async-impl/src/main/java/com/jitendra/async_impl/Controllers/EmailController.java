@@ -28,7 +28,7 @@ public class EmailController {
 
     @GetMapping("/test")
     public String helloString(){
-        return "Hello from EmailController";
+        return emailService.emailTest();
     }
 
 
