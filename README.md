@@ -63,11 +63,22 @@ logging:
 
 This setup enables daily rotated logs with console and file output, ensuring manageable log files and easy debugging.
 
-## Rate Limiting Configuration
+## Rate Limiting Configuration Using Resilience4j
 
 - Added the `RateLimiting` using Resilience4j in the `EmailService` class. The rate limiting is configured to allow 2 requests per period of 60 seconds with a timeout duration of 0 seconds.
 - Refer to the `EmailService` class and `application.properties` for the implementation details.
 - Another way to implement rate limiting is by using `Bucket4j`, which allows configuration based on IP address or globally. In contrast, `Resilience4j` does not support IP-based rate limiting out of the box.
+
+## Rate Limiting Configuration Using Bucket4j
+
+- Uses Redis to store and manage rate limit buckets.
+- Each client IP gets its own bucket (per-IP rate limiting).
+- Limit is 5 requests per minute per IP.
+- Buckets are removed from Redis after 10 minutes of inactivity.
+- Configuration is in `RateLimiterBucket4jConfig.java`.
+- Service logic is in `RateLimitBucket4jService.java`.
+- Global rate limiting is enforced using `RateLimitFilter.java`, which intercepts incoming requests and applies rate limiting based on the client IP address. If you do not want to apply rate limiting globally, remove the logic inside the `doFilter` method of `RateLimitFilter.java` and implement it as a separate method.
+- Example endpoint: `/email/testRateLimitBucket4j` in `EmailController`.
 
 ## ✅ Progress Tracker
 
@@ -77,4 +88,4 @@ Here’s a summary of the tasks that have been successfully completed:
 - [✅] Swagger / OpenAPI Integration. (In Async-impl)
 - [✅] Custom Logging Configuration. (In Async-impl)
 - [✅] Rate Limiting Configuration Using Resilience4j. (In Async-impl)
-- [⌛] Rate Limiting Configuration Using Bucket4j.
+- [✅] Rate Limiting Configuration Using Bucket4j.(In Async-impl)
