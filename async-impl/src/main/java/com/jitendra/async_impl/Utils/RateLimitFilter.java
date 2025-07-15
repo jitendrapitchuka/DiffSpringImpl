@@ -2,7 +2,6 @@ package com.jitendra.async_impl.Utils;
 
 import java.io.IOException;
 
-import org.springframework.boot.actuate.autoconfigure.observation.ObservationProperties.Http;
 import org.springframework.stereotype.Component;
 
 import com.jitendra.async_impl.Service.RateLimitBucket4jService;

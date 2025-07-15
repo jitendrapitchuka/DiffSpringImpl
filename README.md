@@ -80,6 +80,26 @@ This setup enables daily rotated logs with console and file output, ensuring man
 - Global rate limiting is enforced using `RateLimitFilter.java`, which intercepts incoming requests and applies rate limiting based on the client IP address. If you do not want to apply rate limiting globally, remove the logic inside the `doFilter` method of `RateLimitFilter.java` and implement it as a separate method.
 - Example endpoint: `/email/testRateLimitBucket4j` in `EmailController`.
 
+## Custom Banner
+
+You can customize the Spring Boot startup banner by adding a `banner.txt` file in the `src/main/resources` directory. When the application starts, Spring Boot will automatically display the contents of this file in the console.
+
+### Steps to Add a Custom Banner
+1. Create a `banner.txt` file in `src/main/resources/`.
+2. Add your desired ASCII art or text to `banner.txt`.
+3. Restart your Spring Boot application to see the custom banner on startup.
+
+**Example:**
+```
+
+     _ _ _               _            ___          _               _   ___ ___ 
+  _ | (_) |_ ___ _ _  __| |_ _ __ _  / __|_ __ _ _(_)_ _  __ _    /_\ | _ \ _ \
+ | || | |  _/ -_) ' \/ _` | '_/ _` | \__ \ '_ \ '_| | ' \/ _` |  / _ \|  _/  _/
+  \__/|_|\__\___|_||_\__,_|_| \__,_| |___/ .__/_| |_|_||_\__, | /_/ \_\_| |_|  
+                                         |_|             |___/                 
+
+```
+
 ## ✅ Progress Tracker
 
 Here’s a summary of the tasks that have been successfully completed:
@@ -89,3 +109,4 @@ Here’s a summary of the tasks that have been successfully completed:
 - [✅] Custom Logging Configuration. (In Async-impl)
 - [✅] Rate Limiting Configuration Using Resilience4j. (In Async-impl)
 - [✅] Rate Limiting Configuration Using Bucket4j.(In Async-impl)
+- [✅] Custom Banner for Spring Boot Application. (In Async-impl)
