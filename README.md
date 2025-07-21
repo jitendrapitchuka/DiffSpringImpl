@@ -100,6 +100,18 @@ You can customize the Spring Boot startup banner by adding a `banner.txt` file i
 
 ```
 
+## Spring AoP
+
+- Spring AoP (Aspect-Oriented Programming) allows separation of cross-cutting concerns like logging, security, and transactions from business logic.
+- Common annotations:
+  - `@Aspect`: Marks a class as an aspect.
+  - `@Component`: Registers the aspect as a Spring bean.
+  - `@Around`: Advice that runs before and after method execution.
+  - `@Before`: Advice that runs before method execution.
+  - `@After`: Advice that runs after method execution.
+- In this project, an aspect logs method name, arguments, and execution time for all `EmailService` methods using `@Around` advice.
+- See `LoggingAspect.java` for implementation.
+
 ## ✅ Progress Tracker
 
 Here’s a summary of the tasks that have been successfully completed:
@@ -110,3 +122,4 @@ Here’s a summary of the tasks that have been successfully completed:
 - [✅] Rate Limiting Configuration Using Resilience4j. (In Async-impl)
 - [✅] Rate Limiting Configuration Using Bucket4j.(In Async-impl)
 - [✅] Custom Banner for Spring Boot Application. (In Async-impl)
+- [✅] Spring AoP Implementation for Logging. (In Async-impl)

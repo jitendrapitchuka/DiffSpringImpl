@@ -13,7 +13,7 @@ public class EmailService {
     public void sendEmail(String email, String subject, String body) {
         try {
             // Simulate a delay for sending email
-            Thread.sleep(4000); // Simulating network delay
+            Thread.sleep(5000); // Simulating network delay
              // Simulate sending an email
         System.out.println("Thead Name--> " +Thread.currentThread().getName());
         System.out.println("Sending email to: " + email);

@@ -16,7 +16,7 @@ public class EmailController {
     private EmailService emailService;
 
      @PostMapping("/register")
-    public ResponseEntity<String> registerUser(@RequestParam String email) {
+    public ResponseEntity<String> registerUser(@RequestParam(defaultValue = "abc@email.com") String email) {
         // Simulate user registration logic here
 
         // Trigger async email sending
